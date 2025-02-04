@@ -4,17 +4,19 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "dev": "nodemon server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "private": true,
   "dependencies": {
-    "concurrently": "^9.1.2",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "node-telegram-bot-api": "^0.66.0"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "nodemon": "^3.1.9"
   }
 }
