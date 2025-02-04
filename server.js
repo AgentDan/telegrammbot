@@ -3,7 +3,7 @@ const app = express()
 const TelegramBot = require('node-telegram-bot-api');
 const async_hooks = require("node:async_hooks");
 const path = require("path");
-const webAppUrl = 'https://ya.ru'
+const webAppUrl = 'https://web3ddd.com/'
 
 const dotenv = require("dotenv").config()
 
