@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const TelegramBot = require('node-telegram-bot-api');
 const async_hooks = require("node:async_hooks");
+const path = require("path");
 const webAppUrl = 'https://ya.ru'
 
 const dotenv = require("dotenv").config()
@@ -33,5 +34,16 @@ bot.on('message', async (msg) => {
     })
 
 });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, './client/dist')));
+    app.get('*', (req, res) =>
+        res.sendFile(
+            path.resolve(__dirname, './client/dist/index.html')
+        )
+    );
+} else {
+    app.get('/', (req, res) => res.send('Please set to production'));
+}
 
 app.listen(PORT, () => console.log(`Server started on port : ${PORT}`))
