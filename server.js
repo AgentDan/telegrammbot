@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require("path");
 
 const token = '7802370888:AAHrN4NouoeOj3bkNOs4eOA11LmgibOzzRs';
-const webAppUrl = 'test.web3ddd.com';
+const webAppUrl = 'web3ddd.com';
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
