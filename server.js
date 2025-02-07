@@ -2,6 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
 const path = require("path");
+const dotenv = require('dotenv').config()
 
 const token = '7802370888:AAHrN4NouoeOj3bkNOs4eOA11LmgibOzzRs';
 const webAppUrl = 'web3ddd.com';
