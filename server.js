@@ -1,12 +1,14 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
+const path = require("path");
 
 const token = '7802370888:AAHrN4NouoeOj3bkNOs4eOA11LmgibOzzRs';
 const webAppUrl = 'test.web3ddd.com';
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
+const PORT = process.env.PORT || 5000
 
 app.use(express.json());
 app.use(cors());
@@ -67,6 +69,15 @@ app.post('/web-data', async (req, res) => {
     }
 })
 
-const PORT = 8000;
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, './client/dist')));
+    app.get('*', (req, res) =>
+        res.sendFile(
+            path.resolve(__dirname, './client/dist/index.html')
+        )
+    );
+} else {
+    app.get('/', (req, res) => res.send('Please set to production'));
+}
 
 app.listen(PORT, () => console.log('server started on PORT ' + PORT))
