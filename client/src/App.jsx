@@ -16,6 +16,7 @@ function App() {
 
     return (
         <div className="App">
+            <h1 className="bg-blue-400">HELLO</h1>
             <Header />
             <Routes>
                 <Route index element={<ProductListTwo />}/>
