@@ -21,18 +21,18 @@ bot.on('message', async (msg) => {
 
     if (text === '/start') {
 
-        await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму', {
-            reply_markup: {
-                inline_keyboard: [
-                    [{text: 'Заполнить форму', web_app: {url: webAppUrl + '/form'}}]
-                ]
-            }
-        })
+        // await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму', {
+        //     reply_markup: {
+        //         inline_keyboard: [
+        //             [{text: 'Заполнить форму', web_app: {url: webAppUrl + '/form'}}]
+        //         ]
+        //     }
+        // })
 
         await bot.sendMessage(chatId, 'Заходи в наш интернет магазин по кнопке ниже', {
             reply_markup: {
                 keyboard: [
-                    [{text: 'Сделать заказ', web_app: {url: webAppUrl}}]
+                    [{text: 'Заполни форму', web_app: {url: webAppUrl + '/form'}}]
                 ],
                 resize_keyboard: true
             }
