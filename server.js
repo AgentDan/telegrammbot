@@ -36,6 +36,8 @@ bot.on('message', async (msg) => {
 
     if (text === '/admin' && msg.from.username === 'danilravil'){
         await bot.sendMessage(chatId, 'Вы администратор!!!')
+    } else {
+        await bot.sendMessage(chatId, 'Вы пользователь!!!! Не лезь сюда')
     }
 
     if(msg?.web_app_data?.data) {
