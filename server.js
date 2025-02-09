@@ -49,14 +49,6 @@ bot.on('message', async (msg) => {
             await bot.sendMessage(chatId, 'ID : ' + chatId);
             await bot.sendMessage(chatId, 'User : ' + msg.from.username);
 
-            const message = await new Message({
-                text,
-                id: chatId,
-                user: msg.from.username
-            })
-
-            await message.save()
-
             setTimeout(async () => {
                 await bot.sendMessage(chatId, 'Всю информацию вы получите в этом чате');
             }, 5000)
@@ -64,12 +56,21 @@ bot.on('message', async (msg) => {
             console.log(e);
         }
     }
-
 });
 
 app.post('/web-data', async (req, res) => {
-    const {queryId, products = [], totalPrice} = req.body;
+    const {queryId, products = [], totalPrice, user} = req.body;
     try {
+
+        const message = await new Message({
+            owner: user,
+            id: queryId,
+            total: totalPrice,
+            products: products
+        })
+
+        await message.save()
+
         await bot.answerWebAppQuery(queryId, {
             type: 'article',
             id: queryId,
