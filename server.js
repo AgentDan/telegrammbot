@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require("path");
 const dotenv = require('dotenv').config()
 const connectDB = require("./config/db")
+const Message = require('./models/Message')
 
 connectDB()
 
@@ -37,13 +38,18 @@ bot.on('message', async (msg) => {
     if(msg?.web_app_data?.data) {
         try {
             const data = JSON.parse(msg?.web_app_data?.data)
-            console.log(msg)
             await bot.sendMessage(chatId, 'Спасибо за обратную связь!')
             await bot.sendMessage(chatId, 'Ваша страна: ' + data?.country);
             await bot.sendMessage(chatId, 'Ваша улица: ' + data?.street);
             await bot.sendMessage(chatId, 'ID : ' + chatId);
             await bot.sendMessage(chatId, 'User : ' + msg.from.username);
 
+            const message = await new Message({
+                text,
+                owner: chatId
+            })
+
+            await message.save()
 
             setTimeout(async () => {
                 await bot.sendMessage(chatId, 'Всю информацию вы получите в этом чате');
