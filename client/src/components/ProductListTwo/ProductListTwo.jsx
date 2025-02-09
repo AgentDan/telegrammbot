@@ -32,7 +32,7 @@ const ProductListTwo = () => {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
-            user
+            user: user.username
         }
         fetch('/web-data', {
             method: 'POST',
