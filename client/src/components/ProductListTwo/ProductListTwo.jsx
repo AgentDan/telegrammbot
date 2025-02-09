@@ -29,10 +29,10 @@ const getTotalPrice = (items = []) => {
 const ProductListTwo = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId, user} = useTelegram();
-    const [own, setOwn] = useState(false)
+    const [own, setOwn] = useState()
 
-    const onClickCat = (cat) => {
-        setOwn(true)
+    const onClickCat = (itemcat) => {
+        setOwn(itemcat)
     }
 
     const onSendData = useCallback(() => {
@@ -84,12 +84,13 @@ const ProductListTwo = () => {
 
     return (
         <>
-            {own === true ?
+            {own ?
                 (
                     <>
                         <div className="cursor-pointer hover:bg-gray-300" onClick={() => setOwn(false)}>Menu!!!</div>
                         <div className={'list'}>
                             {products.map(item => (
+                                item.own === own &&
                                 <ProductItem
                                     key={item.id}
                                     product={item}
@@ -102,7 +103,6 @@ const ProductListTwo = () => {
                 ) :
                 (
                     <div
-                        // onClick={() => setOwn(true)}
                         className={'list flex flex-col'}
                     >
                         {
