@@ -2,11 +2,10 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
 const path = require("path");
-const url = require("node:url");
 const dotenv = require('dotenv').config()
 
-const token = '7802370888:AAHrN4NouoeOj3bkNOs4eOA11LmgibOzzRs';
-const webAppUrl = 'https://web3ddd.com';
+const token = process.env.TOKEN;
+const webAppUrl =process.env.WEBAPP;
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
@@ -20,14 +19,6 @@ bot.on('message', async (msg) => {
     const text = msg.text;
 
     if (text === '/start') {
-
-        // await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму', {
-        //     reply_markup: {
-        //         inline_keyboard: [
-        //             [{text: 'Заполнить форму', web_app: {url: webAppUrl + '/form'}}]
-        //         ]
-        //     }
-        // })
 
         await bot.sendMessage(chatId, 'Заходи в наш интернет магазин по кнопке ниже', {
             reply_markup: {
