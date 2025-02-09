@@ -3,17 +3,17 @@ import './ProductListTwo.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
-import {v4} from "uuid";
+import {v1} from "uuid";
 
 const products = [
-    {id: v4(), own: "Низ", title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: v4(), own: "Верх", title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: v4(), own: "Низ", title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: v4(), own: "Верх", title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: v4(), own: "Низ", title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: v4(), own: "Верх", title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: v4(), own: "Низ", title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: v4(), own: "Верх", title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
+    {id: v1(), own: "Низ", title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
+    {id: v1(), own: "Верх", title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
+    {id: v1(), own: "Низ", title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
+    {id: v1(), own: "Верх", title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
+    {id: v1(), own: "Низ", title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
+    {id: v1(), own: "Верх", title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
+    {id: v1(), own: "Низ", title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
+    {id: v1(), own: "Верх", title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
 ]
 
 const getTotalPrice = (items = []) => {
@@ -26,10 +26,6 @@ const ProductListTwo = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId, user} = useTelegram();
     const [own, setOwn] = useState(true)
-
-    const onClickCatalog = () => {
-        setOwn(false)
-    }
 
     const onSendData = useCallback(() => {
         const data = {
