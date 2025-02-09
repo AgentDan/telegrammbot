@@ -32,7 +32,7 @@ const ProductListTwo = () => {
     const [own, setOwn] = useState(false)
 
     const onClickCat = (cat) => {
-        setOwn(false)
+        setOwn(true)
     }
 
     const onSendData = useCallback(() => {
