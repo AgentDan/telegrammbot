@@ -3,6 +3,9 @@ const express = require('express');
 const cors = require('cors');
 const path = require("path");
 const dotenv = require('dotenv').config()
+const connectDB = require("./config/db")
+
+connectDB()
 
 const token = process.env.TOKEN;
 const webAppUrl =process.env.WEBAPP;
@@ -11,8 +14,9 @@ const bot = new TelegramBot(token, {polling: true});
 const app = express();
 const PORT = process.env.PORT || 5000
 
-app.use(express.json());
+app.use(express.json({extended: true}));
 app.use(cors());
+app.use('/api/auth', require('./routes/auth.route'))
 
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
@@ -33,10 +37,12 @@ bot.on('message', async (msg) => {
     if(msg?.web_app_data?.data) {
         try {
             const data = JSON.parse(msg?.web_app_data?.data)
-            console.log(data)
+            console.log(msg)
             await bot.sendMessage(chatId, 'Спасибо за обратную связь!')
             await bot.sendMessage(chatId, 'Ваша страна: ' + data?.country);
             await bot.sendMessage(chatId, 'Ваша улица: ' + data?.street);
+            await bot.sendMessage(chatId, 'ID : ' + chatId);
+
 
             setTimeout(async () => {
                 await bot.sendMessage(chatId, 'Всю информацию вы получите в этом чате');
