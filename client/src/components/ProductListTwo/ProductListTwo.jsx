@@ -24,7 +24,7 @@ const getTotalPrice = (items = []) => {
 
 const ProductListTwo = () => {
     const [addedItems, setAddedItems] = useState([]);
-    const {tg, queryId, user} = useTelegram();
+    const {tg, queryId, user, onClose} = useTelegram();
     const [own, setOwn] = useState(true)
 
     const onSendData = useCallback(() => {
@@ -51,26 +51,24 @@ const ProductListTwo = () => {
     }, [onSendData])
 
     const onAdd = (product) => {
-        const alreadyAdded = addedItems.find(item => item.id === product.id);
-        let newItems = [];
+        setAddedItems((prevItems) => {
+            const alreadyAdded = prevItems.some((item) => item.id === product.id);
+            const newItems = alreadyAdded
+                ? prevItems.filter((item) => item.id !== product.id)
+                : [...prevItems, product];
 
-        if (alreadyAdded) {
-            newItems = addedItems.filter(item => item.id !== product.id);
-        } else {
-            newItems = [...addedItems, product];
-        }
+            if (newItems.length === 0) {
+                tg.MainButton.hide();
+            } else {
+                tg.MainButton.show();
+                tg.MainButton.setParams({
+                    text: `Купить на ${getTotalPrice(newItems)}₽`,
+                });
+            }
 
-        setAddedItems(newItems)
-
-        if (newItems.length === 0) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-            tg.MainButton.setParams({
-                text: `Купить ${getTotalPrice(newItems)}`
-            })
-        }
-    }
+            return newItems;
+        });
+    };
 
     return (
         <>
