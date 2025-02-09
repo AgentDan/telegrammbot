@@ -24,7 +24,7 @@ const getTotalPrice = (items = []) => {
 
 const ProductListTwo = () => {
     const [addedItems, setAddedItems] = useState([]);
-    const {tg, queryId, user, onClose} = useTelegram();
+    const {tg, queryId, user} = useTelegram();
     const [own, setOwn] = useState(true)
 
     const onSendData = useCallback(() => {
@@ -32,6 +32,7 @@ const ProductListTwo = () => {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
+            user
         }
         fetch('/web-data', {
             method: 'POST',
