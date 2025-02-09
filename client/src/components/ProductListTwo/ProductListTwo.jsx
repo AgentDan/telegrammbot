@@ -32,7 +32,6 @@ const ProductListTwo = () => {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
-            user
         }
         fetch('/web-data', {
             method: 'POST',
@@ -43,6 +42,7 @@ const ProductListTwo = () => {
         })
     }, [addedItems])
 
+
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
@@ -50,25 +50,28 @@ const ProductListTwo = () => {
         }
     }, [onSendData])
 
+
     const onAdd = (product) => {
-        setAddedItems((prevItems) => {
-            const alreadyAdded = prevItems.some((item) => item.id === product.id);
-            const newItems = alreadyAdded
-                ? prevItems.filter((item) => item.id !== product.id)
-                : [...prevItems, product];
+        const alreadyAdded = addedItems.find(item => item.id === product.id);
+        let newItems = [];
 
-            if (newItems.length === 0) {
-                tg.MainButton.hide();
-            } else {
-                tg.MainButton.show();
-                tg.MainButton.setParams({
-                    text: `Купить на ${getTotalPrice(newItems)}₽`,
-                });
-            }
+        if(alreadyAdded) {
+            newItems = addedItems.filter(item => item.id !== product.id);
+        } else {
+            newItems = [...addedItems, product];
+        }
 
-            return newItems;
-        });
-    };
+        setAddedItems(newItems)
+
+        if(newItems.length === 0) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+            tg.MainButton.setParams({
+                text: `Купить ${getTotalPrice(newItems)}`
+            })
+        }
+    }
 
     return (
         <>
