@@ -42,6 +42,7 @@ bot.on('message', async (msg) => {
             await bot.sendMessage(chatId, 'Ваша страна: ' + data?.country);
             await bot.sendMessage(chatId, 'Ваша улица: ' + data?.street);
             await bot.sendMessage(chatId, 'ID : ' + chatId);
+            await bot.sendMessage(chatId, 'User : ' + msg.from.username);
 
 
             setTimeout(async () => {
