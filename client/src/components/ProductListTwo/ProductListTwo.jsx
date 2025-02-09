@@ -10,16 +10,24 @@ const products = [
     {id: uuidv4(), own: "Верх", title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
     {id: uuidv4(), own: "Низ", title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
     {id: uuidv4(), own: "Верх", title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
+    {id: uuidv4(), own: "Середина", title: 'Ремень', price: 1322, description: 'Зеленого цвета, теплая'},
+    {id: uuidv4(), own: "Середина", title: 'Пряжка', price: 22, description: 'Зеленого цвета, теплая'},
     {id: uuidv4(), own: "Низ", title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
     {id: uuidv4(), own: "Верх", title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
     {id: uuidv4(), own: "Низ", title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
     {id: uuidv4(), own: "Верх", title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
 ]
 
+const categories = ["Низ", "Верх", "Середина"]
+
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
         return acc += item.price
     }, 0)
+}
+
+const onClickCat = (cat) => {
+    console.log(cat)
 }
 
 const ProductListTwo = () => {
@@ -43,14 +51,12 @@ const ProductListTwo = () => {
         })
     }, [addedItems])
 
-
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
-
 
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
@@ -94,10 +100,18 @@ const ProductListTwo = () => {
                 ) :
                 (
                     <div
-                        onClick={() => setOwn(true)}
-                        className="cursor-pointer hover:bg-gray-300"
+                        // onClick={() => setOwn(true)}
+                        className={'list flex flex-col'}
                     >
-                        Catalog
+                        {
+                            categories.map((itemcat, index) => (
+                                <div
+                                    key={index}
+                                    className={'item cursor-pointer hover:bg-gray-300 border-2 px-2 '}
+                                    onClick={()=>onClickCat(itemcat)}
+                                >{itemcat}</div>
+                            ))
+                        }
                     </div>
                 )
             }
