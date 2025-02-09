@@ -46,7 +46,8 @@ bot.on('message', async (msg) => {
 
             const message = await new Message({
                 text,
-                owner: chatId
+                id: chatId,
+                user: msg.from.username
             })
 
             await message.save()
