@@ -5,8 +5,6 @@ const schema = new Schema({
     id: {type: String},
     text: {type: String},
     user: {type: String}
-    // completed: false,
-    // important: false
 })
 
 module.exports = model('Mesage', schema)

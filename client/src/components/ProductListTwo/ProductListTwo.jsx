@@ -78,7 +78,8 @@ const ProductListTwo = () => {
     return (
         <>
             {own === true ?
-                (<>
+                (
+                    <>
                         <div className="cursor-pointer hover:bg-gray-300" onClick={() => setOwn(false)}>Menu!!!</div>
                         <div className={'list'}>
                             {products.map(item => (
@@ -94,7 +95,7 @@ const ProductListTwo = () => {
                 ) :
                 (
                     <div
-                        onClick={()=>setOwn(true)}
+                        onClick={() => setOwn(true)}
                         className="cursor-pointer hover:bg-gray-300"
                     >
                         Catalog

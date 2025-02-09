@@ -24,7 +24,6 @@ bot.on('message', async (msg) => {
     const text = msg.text;
 
     if (text === '/start') {
-
         await bot.sendMessage(chatId, 'Заходи в наш интернет магазин по кнопке ниже', {
             reply_markup: {
                 keyboard: [
@@ -33,6 +32,10 @@ bot.on('message', async (msg) => {
                 resize_keyboard: true
             }
         })
+    }
+
+    if (text === '/admin' && msg.from.username === 'danilravil'){
+        await bot.sendMessage(chatId, 'Вы администратор!!!')
     }
 
     if(msg?.web_app_data?.data) {
@@ -59,6 +62,8 @@ bot.on('message', async (msg) => {
             console.log(e);
         }
     }
+
+
 });
 
 app.post('/web-data', async (req, res) => {
