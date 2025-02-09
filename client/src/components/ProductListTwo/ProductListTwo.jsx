@@ -18,7 +18,7 @@ const products = [
     {id: uuidv4(), own: "картошка", img: "potato2.jpg", title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
 ]
 
-const categories = ["Низ", "Верх", "Середина"]
+const categories = ["суп", "лапша", "картошка"]
 
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
@@ -29,7 +29,7 @@ const getTotalPrice = (items = []) => {
 const ProductListTwo = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId, user} = useTelegram();
-    const [own, setOwn] = useState()
+    const [own, setOwn] = useState("")
 
     const onClickCat = (itemcat) => {
         setOwn(itemcat)
@@ -87,7 +87,7 @@ const ProductListTwo = () => {
             {own ?
                 (
                     <>
-                        <div className="cursor-pointer hover:bg-gray-300" onClick={() => setOwn(false)}>Menu!!!</div>
+                        <div className="cursor-pointer hover:bg-gray-300" onClick={() => setOwn("")}>Menu!!!</div>
                         <div className={'list'}>
                             {products.map(item => (
                                 item.own === own &&
