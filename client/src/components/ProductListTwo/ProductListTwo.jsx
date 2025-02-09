@@ -26,14 +26,14 @@ const getTotalPrice = (items = []) => {
     }, 0)
 }
 
-const onClickCat = (cat) => {
-    console.log(cat)
-}
-
 const ProductListTwo = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId, user} = useTelegram();
-    const [own, setOwn] = useState(true)
+    const [own, setOwn] = useState(false)
+
+    const onClickCat = (cat) => {
+        setOwn(false)
+    }
 
     const onSendData = useCallback(() => {
         const data = {
@@ -79,6 +79,8 @@ const ProductListTwo = () => {
             })
         }
     }
+
+    console.log(own)
 
     return (
         <>
