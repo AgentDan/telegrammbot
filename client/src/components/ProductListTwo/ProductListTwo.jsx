@@ -120,7 +120,7 @@ const ProductListTwo = () => {
             {own ?
                 (
                     <>
-                        <div className="cursor-pointer hover:bg-gray-300 border-2 px-2 "
+                        <div className=" cursor-pointer hover:bg-gray-300 w-[100px] text-center ml-6 rounded-[5px] bg-[#30A3E6]"
                              onClick={() => setOwn("")}
                         >
                             Menu!!!
@@ -147,7 +147,7 @@ const ProductListTwo = () => {
                             categories.map((itemcat, index) => (
                                 <div
                                     key={index}
-                                    className={'item cursor-pointer hover:bg-gray-300 border-2 px-2 '}
+                                    className={'item cursor-pointer hover:bg-gray-300 rounded-[5px] bg-yellow-300 px-2 w-1/3 ml-4'}
                                     onClick={() => onClickCat(itemcat)}
                                 >{itemcat}</div>
                             ))

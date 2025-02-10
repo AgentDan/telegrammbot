@@ -11,7 +11,11 @@ const ProductItem = ({product, className, onAdd}) => {
     return (
         <>
             <div className={'product rounded-2xl' + className}>
-                <img src={"./img/"+product.img} alt={product.title}/>
+                <img
+                    src={"./img/"+product.img}
+                    alt={product.title}
+                    className="w-auto h-[150px] object-contain"
+                />
                 <div className={'title'}>{product.title}</div>
                 <div className={'description'}>{product.description}</div>
                 <div className={'cat'}>{product.own}</div>
