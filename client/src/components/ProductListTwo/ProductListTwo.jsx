@@ -66,9 +66,29 @@ const ProductListTwo = () => {
     const {tg, queryId, user} = useTelegram();
     const [own, setOwn] = useState("")
     const [adress, setAdress] = useState(false)
+    const [delivery, setDelivery] = useState('доставка');
+    const [street, setStreet] = useState('');
+    const [house, setHouse] = useState('');
+    const [note, setNote] = useState('');
 
     const onClickCat = (itemcat) => {
         setOwn(itemcat)
+    }
+
+    const onChangeDelivery = (e) => {
+        setDelivery(e.target.value)
+    }
+
+    const onChangeStreet = (e) => {
+        setStreet(e.target.value)
+    }
+
+    const onChangeHouse = (e) => {
+        setHouse(e.target.value)
+    }
+
+    const onChangNote = (e) => {
+        setNote(e.target.value)
     }
 
     const onSendData = useCallback(() => {
@@ -118,7 +138,6 @@ const ProductListTwo = () => {
 
     return (
         <>
-
             {adress === true ? (
 
                     own ?
@@ -161,7 +180,42 @@ const ProductListTwo = () => {
                         )
                 ) :
                 (
-                    <div onClick={()=> setAdress(true)}> Dostavka</div>
+                    <>
+                        <div
+                            className="cursor-pointer hover:bg-gray-200"
+                            onClick={() => setAdress(true)}
+                        >
+                            Готово
+                        </div>
+                        <div className={"form"}>
+                            <h3>Введите адрес доставки: </h3>
+                            <select value={delivery} onChange={onChangeDelivery} className={'select'}>
+                                <option value={'physical'}>Самовывоз</option>
+                                <option value={'legal'}>Доставка</option>
+                            </select>
+                            <input
+                                className={'input'}
+                                type="text"
+                                placeholder={'Улица'}
+                                value={street}
+                                onChange={onChangeStreet}
+                            />
+                            <input
+                                className={'input'}
+                                type="text"
+                                placeholder={'Дом'}
+                                value={house}
+                                onChange={onChangeHouse}
+                            />
+                            <input
+                                className={'input'}
+                                type="text"
+                                placeholder={'Примечание'}
+                                value={note}
+                                onChange={onChangNote}
+                            />
+                        </div>
+                    </>
                 )
             }
         </>
