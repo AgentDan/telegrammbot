@@ -8,37 +8,37 @@ const Header = () => {
     const {user, onClose} = useTelegram();
 
     return (
-        <div className={'header'}>
+        <div className={'header border-b-2 border-b-[#2AABEE] gap-1'}>
             <Link to={"/"}>
                 <div
-                    className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
+                    className="cursor-pointer hover:bg-gray-200 hover:border-b-gray-200 w-[70px] text-center rounded-tl-[5px] rounded-tr-[5px] bg-[#2AABEE] border-2 border-b-[#2AABEE] border-t-[#2AABEE] border-l-[#2AABEE] border-r-[#2AABEE]"
                 >
                     Меню
                 </div>
             </Link>
             <Link to={"/form"}>
                 <div
-                    className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
+                    className="cursor-pointer hover:bg-gray-200 hover:border-b-gray-200 w-[70px] text-center rounded-tl-[5px] rounded-tr-[5px] bg-[#2AABEE] border-2 border-b-[#2AABEE] border-t-[#2AABEE] border-l-[#2AABEE] border-r-[#2AABEE]"
                 >
                     Форма
                 </div>
             </Link>
             <Link to={"/orders"}>
                 <div
-                    className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
+                    className="cursor-pointer hover:bg-gray-200 hover:border-b-gray-200 w-[70px] text-center rounded-tl-[5px] rounded-tr-[5px] bg-[#2AABEE] border-2 border-b-[#2AABEE] border-t-[#2AABEE] border-l-[#2AABEE] border-r-[#2AABEE]"
                 >
                     Заказы
                 </div>
             </Link>
             <div
-                className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
+                className="cursor-pointer hover:bg-gray-200 hover:border-b-gray-200 w-[70px] text-center rounded-tl-[5px] rounded-tr-[5px] bg-[#2AABEE] border-2 border-b-[#2AABEE] border-t-[#2AABEE] border-l-[#2AABEE] border-r-[#2AABEE]"
                 onClick={onClose}
             >
                 Закрыть
             </div>
-            <span className="ml-0">
-                {user?.username}
-            </span>
+            {/*<span className="ml-0">*/}
+            {/*    {user?.username}*/}
+            {/*</span>*/}
         </div>
     );
 };
