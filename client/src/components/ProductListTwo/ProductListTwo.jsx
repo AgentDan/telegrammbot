@@ -65,7 +65,7 @@ const ProductListTwo = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId, user} = useTelegram();
     const [own, setOwn] = useState("")
-    const [adress, serAdress] = useState(false)
+    const [adress, setAdress] = useState(false)
 
     const onClickCat = (itemcat) => {
         setOwn(itemcat)
@@ -119,7 +119,7 @@ const ProductListTwo = () => {
     return (
         <>
 
-            {adress === false ? (
+            {adress === true ? (
 
                     own ?
                         (
@@ -161,7 +161,7 @@ const ProductListTwo = () => {
                         )
                 ) :
                 (
-                    <div> Dostavka</div>
+                    <div onClick={()=> setAdress(true)}> Dostavka</div>
                 )
             }
         </>
