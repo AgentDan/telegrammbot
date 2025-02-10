@@ -65,6 +65,7 @@ const ProductListTwo = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId, user} = useTelegram();
     const [own, setOwn] = useState("")
+    const [adress, serAdress] = useState(false)
 
     const onClickCat = (itemcat) => {
         setOwn(itemcat)
@@ -117,42 +118,50 @@ const ProductListTwo = () => {
 
     return (
         <>
-            {own ?
-                (
-                    <>
-                        <div className=" cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
-                             onClick={() => setOwn("")}
-                        >
-                            Menu!!!
-                        </div>
-                        <div
-                            className={'list'}>
-                            {products.map(item => (
-                                item.own === own &&
-                                <ProductItem
-                                    key={item.id}
-                                    product={item}
-                                    onAdd={onAdd}
-                                    className={'item'}
-                                />
-                            ))}
-                        </div>
-                    </>
+
+            {adress === false ? (
+
+                    own ?
+                        (
+                            <>
+                                <div
+                                    className=" cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
+                                    onClick={() => setOwn("")}
+                                >
+                                    назад
+                                </div>
+                                <div
+                                    className={'list'}>
+                                    {products.map(item => (
+                                        item.own === own &&
+                                        <ProductItem
+                                            key={item.id}
+                                            product={item}
+                                            onAdd={onAdd}
+                                            className={'item'}
+                                        />
+                                    ))}
+                                </div>
+                            </>
+                        ) :
+                        (
+                            <div
+                                className={'list flex flex-col'}
+                            >
+                                {
+                                    categories.map((itemcat, index) => (
+                                        <div
+                                            key={index}
+                                            className={'item cursor-pointer hover:bg-gray-300 rounded-[5px] bg-yellow-300 px-2 w-1/3 ml-4'}
+                                            onClick={() => onClickCat(itemcat)}
+                                        >{itemcat}</div>
+                                    ))
+                                }
+                            </div>
+                        )
                 ) :
                 (
-                    <div
-                        className={'list flex flex-col'}
-                    >
-                        {
-                            categories.map((itemcat, index) => (
-                                <div
-                                    key={index}
-                                    className={'item cursor-pointer hover:bg-gray-300 rounded-[5px] bg-yellow-300 px-2 w-1/3 ml-4'}
-                                    onClick={() => onClickCat(itemcat)}
-                                >{itemcat}</div>
-                            ))
-                        }
-                    </div>
+                    <div> Dostavka</div>
                 )
             }
         </>
