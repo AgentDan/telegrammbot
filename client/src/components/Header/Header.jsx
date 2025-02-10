@@ -9,12 +9,13 @@ const Header = () => {
 
     return (
         <div className={'header'}>
-            <div
-                className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
-                onClick={onClose}
-            >
-                Закрыть
-            </div>
+            <Link to={"/"}>
+                <div
+                    className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
+                >
+                    Меню
+                </div>
+            </Link>
             <Link to={"/form"}>
                 <div
                     className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
@@ -22,6 +23,19 @@ const Header = () => {
                     Форма
                 </div>
             </Link>
+            <Link to={"/orders"}>
+                <div
+                    className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
+                >
+                    Заказы
+                </div>
+            </Link>
+            <div
+                className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
+                onClick={onClose}
+            >
+                Закрыть
+            </div>
             <span className="ml-0">
                 {user?.username}
             </span>

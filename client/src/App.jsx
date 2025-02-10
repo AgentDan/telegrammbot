@@ -6,6 +6,7 @@ import {Route, Routes} from 'react-router-dom'
 import ProductList from "./components/ProductList/Productlist.jsx";
 import Form from "./components/Form/Form";
 import ProductListTwo from "./components/ProductListTwo/ProductListTwo.jsx";
+import ListOrders from "./components/ListOrders/ListOrders.jsx";
 
 function App() {
     const {onToggleButton, tg} = useTelegram();
@@ -21,6 +22,7 @@ function App() {
                 <Route index element={<ProductListTwo />}/>
                 {/*<Route index element={<ProductList />}/>*/}
                 <Route path={'form'} element={<Form />}/>
+                <Route path={'orders'} element={<ListOrders />}/>
             </Routes>
         </div>
     );
