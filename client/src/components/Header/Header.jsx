@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <div className={'header'}>
             <div
-                className="cursor-pointer hover:bg-gray-300 w-[100px] text-center ml-6 rounded-[5px] bg-[##2AABEE]"
+                className="cursor-pointer hover:bg-gray-300 w-[100px] text-center m-4 rounded-[5px] bg-[#2AABEE]"
                 onClick={onClose}
             >Закрыть</div>
             {/*<Button>Закрыть</Button>*/}
