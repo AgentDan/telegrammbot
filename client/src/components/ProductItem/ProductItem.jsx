@@ -10,7 +10,7 @@ const ProductItem = ({product, className, onAdd}) => {
 
     return (
         <>
-            <div className={'product ' + className}>
+            <div className={'product rounded-2xl' + className}>
                 <img src={"./img/"+product.img} alt={product.title}/>
                 <div className={'title'}>{product.title}</div>
                 <div className={'description'}>{product.description}</div>

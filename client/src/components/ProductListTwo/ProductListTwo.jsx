@@ -80,8 +80,6 @@ const ProductListTwo = () => {
         }
     }
 
-    console.log(own)
-
     return (
         <>
             {own ?
