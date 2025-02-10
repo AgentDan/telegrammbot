@@ -146,7 +146,7 @@ const ProductListTwo = () => {
                         ) :
                         (
                             <div
-                                className={'list flex flex-col'}
+                                className={'list flex flex-col mt-4'}
                             >
                                 {
                                     categories.map((itemcat, index) => (
