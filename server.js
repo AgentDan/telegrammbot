@@ -59,14 +59,15 @@ bot.on('message', async (msg) => {
 });
 
 app.post('/web-data', async (req, res) => {
-    const {queryId, products = [], totalPrice, user} = req.body;
+    const {queryId, products = [], totalPrice, user, del} = req.body;
     try {
 
         const message = await new Message({
             owner: user,
             id: queryId,
             total: totalPrice,
-            products: products
+            products: products,
+            del: del
         })
 
         await message.save()

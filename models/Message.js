@@ -5,7 +5,8 @@ const schema = new Schema({
     owner: {type: String},
     id: {type: String},
     total: {type: Number},
-    products: {type: Array}
+    products: {type: Array},
+    del: {type: String}
 })
 
 module.exports = model('Mesage', schema)
