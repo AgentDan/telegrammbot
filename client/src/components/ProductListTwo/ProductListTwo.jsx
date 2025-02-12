@@ -99,7 +99,7 @@ const ProductListTwo = () => {
             user: user.username,
             del: delivery
         }
-        fetch('/web-data', {
+        fetch('/api/bot/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
