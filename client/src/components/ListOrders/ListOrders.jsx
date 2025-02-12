@@ -1,38 +1,45 @@
 import axios from "axios";
-import {useCallback} from "react";
-import {useTelegram} from "../../hooks/useTelegram";
+import {useCallback, useEffect, useState} from "react";
+// import {useTelegram} from "../../hooks/useTelegram";
 
 
 const ListOrders = () => {
 
-    const {user} = useTelegram()
+    // const {user} = useTelegram()
+    const user = "danilravil"
+    const [list, setList] = useState([])
 
-    const demolist = [
-        {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-        {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-        {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-        {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-        {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-        {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-    ]
+    // const demolist = [
+    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
+    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
+    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
+    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
+    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
+    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
+    // ]
 
     const getPoints = useCallback(async () => {
         try {
-            await axios.get('/api/points', {
+            await axios.get('http://localhost:5000/api/points', {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                params: {user: user.username}
+                params: {user: user}
             })
+                .then((response)=> setList(response.data))
         } catch (error) {
             console.log(error)
         }
     }, [user.username])
 
+    useEffect(() => {
+        getPoints()
+    }, [getPoints]);
+
     return (
         <>
             {
-                demolist.map((item, index)=>{
+                list.map((item, index)=>{
                         return(
                             <>
                                 <div className="flex">
