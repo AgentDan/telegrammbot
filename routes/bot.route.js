@@ -1,4 +1,15 @@
-router.post('/web-data', async (req, res) => {
+const Message = require('./../models/Message')
+const connectDB = require("./../config/db")
+const TelegramBot = require('node-telegram-bot-api');
+
+connectDB()
+
+const token = process.env.TOKEN;
+const webAppUrl =process.env.WEBAPP;
+
+const bot = new TelegramBot(token, {polling: true});
+
+post('/web-data', async (req, res) => {
     const {queryId, products = [], totalPrice, user, del} = req.body;
     try {
 
