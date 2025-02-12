@@ -1,4 +1,4 @@
-const TelegramBot = require('node-telegram-bot-api');
+// const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
 const path = require("path");
@@ -11,7 +11,7 @@ connectDB()
 const token = process.env.TOKEN;
 const webAppUrl =process.env.WEBAPP;
 
-const bot = new TelegramBot(token, {polling: true});
+// const bot = new TelegramBot(token, {polling: true});
 const app = express();
 const PORT = process.env.PORT || 5000
 
