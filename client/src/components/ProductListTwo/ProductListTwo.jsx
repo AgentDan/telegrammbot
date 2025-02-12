@@ -184,28 +184,28 @@ const ProductListTwo = () => {
                     <>
                         <div className={"form"}>
                             <h3>Введите адрес доставки: </h3>
-                            <select value={delivery} onChange={onChangeDelivery} className={'select cursor-pointer'}>
-                                <option value={'physical'} className="select cursor-pointer">Самовывоз</option>
-                                <option value={'legal'} className="select cursor-pointer">Доставка</option>
+                            <select value={delivery} onChange={onChangeDelivery} className={'border-2 p-[10px] mt-[15px] cursor-pointer'}>
+                                <option value={'physical'} className="p-[10px] mt-[15px]">Самовывоз</option>
+                                <option value={'legal'} className="p-[10px] mt-[15px]">Доставка</option>
                             </select>
                             {delivery === "legal" &&
                                 <>
                                     <input
-                                        className={'input'}
+                                        className={'w-[100%] p-[10px] mt-[15px] border-2'}
                                         type="text"
                                         placeholder={'Улица'}
                                         value={street}
                                         onChange={onChangeStreet}
                                     />
                                     <input
-                                        className={'input'}
+                                        className={'w-[100%] p-[10px] mt-[15px] border-2'}
                                         type="text"
                                         placeholder={'Дом'}
                                         value={house}
                                         onChange={onChangeHouse}
                                     />
                                     <input
-                                        className={'input'}
+                                        className={'w-[100%] p-[10px] mt-[15px] border-2'}
                                         type="text"
                                         placeholder={'Примечание'}
                                         value={note}
@@ -215,7 +215,7 @@ const ProductListTwo = () => {
                             }
                         </div>
                         <div
-                            className="cursor-pointer hover:bg-gray-200"
+                            className="cursor-pointer hover:bg-gray-200 w-1/3 h-[40px] bg-[#2AABEE] rounded-br-xl rounded-tr-xl content-center text-center "
                             onClick={() => setAdress(true)}
                         >
                             Готово
