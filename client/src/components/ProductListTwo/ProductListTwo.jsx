@@ -66,7 +66,7 @@ const ProductListTwo = () => {
     const {tg, queryId, user} = useTelegram();
     const [own, setOwn] = useState("")
     const [adress, setAdress] = useState(false)
-    const [delivery, setDelivery] = useState('доставка');
+    const [delivery, setDelivery] = useState('legal');
     const [street, setStreet] = useState('');
     const [house, setHouse] = useState('');
     const [note, setNote] = useState('');
