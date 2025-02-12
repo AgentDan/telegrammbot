@@ -59,6 +59,7 @@ bot.on('message', async (msg) => {
         }
     }
 });
+/*
 
 app.post('/web-data', async (req, res) => {
     const {queryId, products = [], totalPrice, user, del} = req.body;
@@ -87,6 +88,7 @@ app.post('/web-data', async (req, res) => {
         return res.status(500).json({})
     }
 })
+*/
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, './client/dist')));
