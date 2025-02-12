@@ -29,9 +29,9 @@ const Header = () => {
             >
                 Закрыть
             </div>
-            {/*<span className="ml-0">*/}
-            {/*    {user?.username}*/}
-            {/*</span>*/}
+            <span className="ml-0">
+                {user?.username}
+            </span>
         </div>
     );
 };

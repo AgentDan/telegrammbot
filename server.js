@@ -20,6 +20,7 @@ app.use(cors());
 app.use('/api/auth', require('./routes/auth.route'))
 
 app.use('/api/bot', require('./routes/bot.route'))
+app.use('/api/points', require('./routes/points.route'))
 
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
