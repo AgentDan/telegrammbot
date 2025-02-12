@@ -182,39 +182,43 @@ const ProductListTwo = () => {
                 ) :
                 (
                     <>
+                        <div className={"form"}>
+                            <h3>Введите адрес доставки: </h3>
+                            <select value={delivery} onChange={onChangeDelivery} className={'select cursor-pointer'}>
+                                <option value={'physical'} className="select cursor-pointer">Самовывоз</option>
+                                <option value={'legal'} className="select cursor-pointer">Доставка</option>
+                            </select>
+                            {delivery === "legal" &&
+                                <>
+                                    <input
+                                        className={'input'}
+                                        type="text"
+                                        placeholder={'Улица'}
+                                        value={street}
+                                        onChange={onChangeStreet}
+                                    />
+                                    <input
+                                        className={'input'}
+                                        type="text"
+                                        placeholder={'Дом'}
+                                        value={house}
+                                        onChange={onChangeHouse}
+                                    />
+                                    <input
+                                        className={'input'}
+                                        type="text"
+                                        placeholder={'Примечание'}
+                                        value={note}
+                                        onChange={onChangNote}
+                                    />
+                                </>
+                            }
+                        </div>
                         <div
                             className="cursor-pointer hover:bg-gray-200"
                             onClick={() => setAdress(true)}
                         >
                             Готово
-                        </div>
-                        <div className={"form"}>
-                            <h3>Введите адрес доставки: </h3>
-                            <select value={delivery} onChange={onChangeDelivery} className={'select'}>
-                                <option value={'physical'}>Самовывоз</option>
-                                <option value={'legal'}>Доставка</option>
-                            </select>
-                            <input
-                                className={'input'}
-                                type="text"
-                                placeholder={'Улица'}
-                                value={street}
-                                onChange={onChangeStreet}
-                            />
-                            <input
-                                className={'input'}
-                                type="text"
-                                placeholder={'Дом'}
-                                value={house}
-                                onChange={onChangeHouse}
-                            />
-                            <input
-                                className={'input'}
-                                type="text"
-                                placeholder={'Примечание'}
-                                value={note}
-                                onChange={onChangNote}
-                            />
                         </div>
                     </>
                 )
