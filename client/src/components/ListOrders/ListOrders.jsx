@@ -7,7 +7,7 @@ const ListOrders = () => {
     const {user} = useTelegram()
     // const user = "danilravil"
     const [list, setList] = useState([])
-    console.log("user: ", user)
+    console.log("user: ", user?.username)
 
     const getPoints = useCallback(async () => {
         try {
