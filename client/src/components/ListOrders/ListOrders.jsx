@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useCallback, useEffect, useState} from "react";
-// import {useTelegram} from "../../hooks/useTelegram";
+import {useTelegram} from "../../hooks/useTelegram";
 
 
 const ListOrders = () => {
@@ -20,17 +20,17 @@ const ListOrders = () => {
 
     const getPoints = useCallback(async () => {
         try {
-            await axios.get('http://localhost:5000/api/points', {
+            await axios.get('https://web3ddd.com/api/points', {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                params: {user: user}
+                params: {user}
             })
-                .then((response)=> setList(response.data))
+                .then((response)=> console.log(response.data))
         } catch (error) {
             console.log(error)
         }
-    }, [user.username])
+    }, [user])
 
     useEffect(() => {
         getPoints()
