@@ -7,8 +7,7 @@ const ListOrders = () => {
     const {user} = useTelegram()
     // const user = "danilravil"
     const [list, setList] = useState([])
-    const us = user?.username
-    console.log(us)
+    console.log("user: ", user)
 
     const getPoints = useCallback(async () => {
         try {
@@ -32,10 +31,6 @@ const ListOrders = () => {
 
     return (
         <>
-            {us && <h1>us: {us}</h1>}
-            {user && <h1>user: {user}</h1>}
-            {user.username && <h1>user?.username: {user?.username}</h1>}
-            {user.username && <h1>user.username: {user.username}</h1>}
             {
                 list.map((item) => {
                         return (
