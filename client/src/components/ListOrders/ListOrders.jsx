@@ -19,8 +19,8 @@ const ListOrders = () => {
                 },
                 params: {us}
             })
-                .then((response)=> setList(response.data))
-                // .then((response)=> console.log(response.data))
+                .then((response) => setList(response.data))
+            // .then((response)=> console.log(response.data))
         } catch (error) {
             console.log(error)
         }
@@ -32,17 +32,21 @@ const ListOrders = () => {
 
     return (
         <>
+            {us && <h1>us: {us}</h1>}
+            {user && <h1>user: {user}</h1>}
+            {user.username && <h1>user?.username: {user?.username}</h1>}
+            {user.username && <h1>user.username: {user.username}</h1>}
             {
-                list.map((item)=>{
-                        return(
+                list.map((item) => {
+                        return (
                             <>
                                 <div className="flex">
                                     {
-                                        item.products.map((a)=>{
-                                            return(
+                                        item.products.map((a) => {
+                                            return (
                                                 <>
-                                                <div className="mx-2">{a.title}</div>
-                                                <div className="mx-2">{a.price}</div>
+                                                    <div className="mx-2">{a.title}</div>
+                                                    <div className="mx-2">{a.price}</div>
                                                 </>
                                             )
                                         })
