@@ -97,7 +97,8 @@ const ProductListTwo = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
             user: user.username,
-            del: delivery
+            del: delivery,
+            timestamp: new Date().toISOString() // Фиксируем время заказа
         }
         fetch('/api/bot/web-data', {
             method: 'POST',

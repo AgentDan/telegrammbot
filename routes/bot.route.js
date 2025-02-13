@@ -2,6 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const {Router} = require("express");
 const router = Router()
 const Message = require('./../models/Message')
+const {timestampFormat} = require("concurrently/dist/src/defaults");
 
 const token = process.env.TOKEN;
 const webAppUrl = process.env.WEBAPP;
@@ -17,7 +18,8 @@ router.post('/web-data', async (req, res) => {
             id: queryId,
             total: totalPrice,
             products: products,
-            del: del
+            del: del,
+            timestamp: timestamp
         })
 
         await message.save()
