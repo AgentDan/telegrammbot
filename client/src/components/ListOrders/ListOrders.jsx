@@ -7,7 +7,8 @@ const ListOrders = () => {
     const {user} = useTelegram()
     // const user = "danilravil"
     const [list, setList] = useState([])
-    const us = user.username
+    const us = user?.username
+    console.log(us)
 
     const getPoints = useCallback(async () => {
         try {
@@ -23,7 +24,7 @@ const ListOrders = () => {
         } catch (error) {
             console.log(error)
         }
-    }, [user.username])
+    }, [user])
 
     useEffect(() => {
         getPoints()
