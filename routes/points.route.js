@@ -5,7 +5,7 @@ const Messages = require('../models/Message')
 router.get('/', async (req, res)=> {
     console.log(req.body)
     try{
-        const {user} = req.body
+        const {user} = req.query
         const orderUser = await Messages.find({ owner: user })
         res.json(orderUser)
     }catch (error) {
