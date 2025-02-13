@@ -18,7 +18,7 @@ router.post('/web-data', async (req, res) => {
             total: totalPrice,
             products: products,
             del: del,
-            timestamp: timestamp
+            timestamp: new Date()
         })
 
         await message.save()
