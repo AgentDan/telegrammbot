@@ -20,13 +20,14 @@ const ListOrders = () => {
 
     const getPoints = useCallback(async () => {
         try {
-            await axios.get('https://web3ddd.com/api/points', {
+            // await axios.get('https://web3ddd.com/api/points', {
+            await axios.get('/api/points', {
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 params: {user}
             })
-                .then((response)=> console.log(response.data))
+                .then((response)=> setList(response.data))
         } catch (error) {
             console.log(error)
         }
@@ -39,13 +40,20 @@ const ListOrders = () => {
     return (
         <>
             {
-                list.map((item, index)=>{
+                list.map((item)=>{
                         return(
                             <>
                                 <div className="flex">
-                                    <div className="mx-2">{item.id}</div>
-                                    <div className="mx-2">{item.name}</div>
-                                    <div className="mx-2">{item.surname}</div>
+                                    {
+                                        item.products.map((a)=>{
+                                            return(
+                                                <>
+                                                <div className="mx-2">{a.title}</div>
+                                                <div className="mx-2">{a.price}</div>
+                                                </>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </>
                         )
