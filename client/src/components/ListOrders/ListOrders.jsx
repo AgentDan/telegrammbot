@@ -13,7 +13,8 @@ const ListOrders = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                params: {user: user.username}
+                // params: {user: user.username}
+                params: {user: "danilravil"}
             })
                 .then((response) => setList(response.data))
         } catch (error) {
@@ -27,22 +28,28 @@ const ListOrders = () => {
 
     return (
         <>
-            <div>USERNAME : {user?.username}</div>
             {
                 list.map((item) => {
                         return (
                             <>
-                                <div className="flex">
-                                    {
-                                        item.products.map((a) => {
-                                            return (
-                                                <>
-                                                    <div className="mx-2">{a.title}</div>
-                                                    <div className="mx-2">{a.price}</div>
-                                                </>
-                                            )
-                                        })
-                                    }
+                                <div>
+                                    <div
+                                        className="font-semibold">{new Date(item.timestamp).toLocaleString().slice(0, 10)}
+                                    </div>
+                                    <div>
+                                        {
+                                            item.products.map((a) => {
+                                                return (
+                                                    <>
+                                                        <div className='flex mx-2'>
+                                                            <div className="mr-4 ">{a.title}</div>
+                                                            <div className="mx-2 ">Цена: {a.price} din</div>
+                                                        </div>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                    </div>
                                 </div>
                             </>
                         )
