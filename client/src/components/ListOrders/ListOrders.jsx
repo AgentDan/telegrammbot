@@ -4,8 +4,8 @@ import {useTelegram} from "../../hooks/useTelegram";
 
 const ListOrders = () => {
 
-    // const {user} = useTelegram()
-    const user = "danilravil"
+    const {user} = useTelegram()
+    // const user = "danilravil"
     const [list, setList] = useState([])
 
     const getPoints = useCallback(async () => {
