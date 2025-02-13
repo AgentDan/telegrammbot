@@ -9,15 +9,6 @@ const ListOrders = () => {
     const user = "danilravil"
     const [list, setList] = useState([])
 
-    // const demolist = [
-    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-    //     {id: 1, name: "asdffasdf", surname: "asdfsdfdsfsdf"},
-    // ]
-
     const getPoints = useCallback(async () => {
         try {
             // await axios.get('https://web3ddd.com/api/points', {
