@@ -7,6 +7,7 @@ import ProductList from "./components/ProductList/Productlist.jsx";
 import Form from "./components/Form/Form";
 import ProductListTwo from "./components/ProductListTwo/ProductListTwo.jsx";
 import ListOrders from "./components/ListOrders/ListOrders.jsx";
+import Admin from "./components/Admin/Admin.jsx";
 
 function App() {
     const {onToggleButton, tg} = useTelegram();
@@ -17,12 +18,13 @@ function App() {
 
     return (
         <div className="App">
-            <Header />
+            {location.pathname !== "/admin" && <Header />}
             <Routes>
                 <Route index element={<ProductListTwo />}/>
                 {/*<Route index element={<ProductList />}/>*/}
                 <Route path={'form'} element={<Form />}/>
                 <Route path={'orders'} element={<ListOrders />}/>
+                <Route path={'admin'} element={<Admin/>}/>
             </Routes>
         </div>
     );
