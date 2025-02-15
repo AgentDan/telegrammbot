@@ -151,7 +151,7 @@ const ProductListTwo = () => {
                                 type="text"
                                 placeholder={'Как к вам обращаться'}
                                 value={nameSurname}
-                                onChange={()=>setNameSurname(onChangeNameSurname)}
+                                onChange={onChangeNameSurname}
                             />
                             <h3>Введите адрес доставки или укажите "Самовывоз": </h3>
                             <select value={delivery} onChange={onChangeDelivery}
