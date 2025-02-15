@@ -34,6 +34,10 @@ const ProductListTwo = () => {
         setDelivery(e.target.value)
     }
 
+    const onChangeNameSurname = (e) => {
+        setNameSurname(e.target.value)
+    }
+
     const onChangeStreet = (e) => {
         setStreet(e.target.value)
     }
@@ -143,12 +147,13 @@ const ProductListTwo = () => {
                     <>
                         <div className={"form"}>
                             <input
+                                className={'w-[100%] p-[10px] mt-[15px] border-2'}
                                 type="text"
                                 placeholder={'Как к вам обращаться'}
                                 value={nameSurname}
-                                onChange={()=>setNameSurname(e.target.value)}
+                                onChange={()=>setNameSurname(onChangeNameSurname)}
                             />
-                            <h3>Введите адрес доставки: </h3>
+                            <h3>Введите адрес доставки или укажите "Самовывоз": </h3>
                             <select value={delivery} onChange={onChangeDelivery}
                                     className={'border-2 p-[10px] mt-[15px] cursor-pointer'}>
                                 <option value={'physical'} className="p-[10px] mt-[15px]">Самовывоз</option>
