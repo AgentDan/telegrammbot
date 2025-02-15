@@ -7,7 +7,7 @@ import {state} from './../State/state.js'
 
 const products = state
 
-const categories = ["суп", "лапша", "картошка"]
+const categories = ["суп", "лапша", "картошка", "горячие блюда", "caлат"]
 
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
