@@ -40,7 +40,10 @@ const Admin = () => {
                                     date === item.timestamp.slice(0, 10)
                                     &&
                                     <div className="my-4">
-                                        <div className="border-b">{item.owner}</div>
+                                        <div className="border-b flex">
+                                            <div >{item.owner}</div>
+                                            <div >{item.owner}</div>
+                                        </div>
                                         {item.products.map((itemproducts) => {
                                             return (
                                                 <div className="flex">

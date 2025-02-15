@@ -10,7 +10,8 @@ const schema = new Schema({
     timestamp: {type: String},
     street: {type: String},
     house: {type: String},
-    note: {type: String}
+    note: {type: String},
+    nameSurname: {type: String}
 })
 
 module.exports = model('Mesage', schema)

@@ -24,6 +24,7 @@ const ProductListTwo = () => {
     const [street, setStreet] = useState('');
     const [house, setHouse] = useState('');
     const [note, setNote] = useState('');
+    const [nameSurname, setNameSurname] = useState('')
 
     const onClickCat = (itemcat) => {
         setOwn(itemcat)
@@ -54,7 +55,8 @@ const ProductListTwo = () => {
             del: delivery,
             street: street,
             house: house,
-            note: note
+            note: note,
+            nameSurname: nameSurname
         }
         fetch('/api/bot/web-data', {
             method: 'POST',
@@ -140,6 +142,12 @@ const ProductListTwo = () => {
                 (
                     <>
                         <div className={"form"}>
+                            <input
+                                type="text"
+                                placeholder={'Как к вам обращаться'}
+                                value={nameSurname}
+                                onChange={()=>setNameSurname(e.target.value)}
+                            />
                             <h3>Введите адрес доставки: </h3>
                             <select value={delivery} onChange={onChangeDelivery}
                                     className={'border-2 p-[10px] mt-[15px] cursor-pointer'}>

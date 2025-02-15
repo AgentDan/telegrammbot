@@ -9,7 +9,7 @@ const webAppUrl = process.env.WEBAPP;
 const bot = new TelegramBot(token, {polling: true});
 
 router.post('/web-data', async (req, res) => {
-    const {queryId, products = [], totalPrice, user, del, street, house, note} = req.body;
+    const {queryId, products = [], totalPrice, user, del, street, house, note, nameSurname} = req.body;
     try {
 
         const message = await new Message({
@@ -21,7 +21,8 @@ router.post('/web-data', async (req, res) => {
             timestamp: new Date().toISOString(),
             street: street,
             house: house,
-            note: note
+            note: note,
+            nameSurname: nameSurname
         })
 
         await message.save()
