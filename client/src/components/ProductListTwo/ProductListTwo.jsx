@@ -100,6 +100,7 @@ const ProductListTwo = () => {
         }
     }
 
+    console.log(delivery)
     return (
         <>
             {adress === true ? (

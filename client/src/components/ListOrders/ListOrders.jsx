@@ -14,7 +14,6 @@ const ListOrders = () => {
                     'Content-Type': 'application/json'
                 },
                 params: {user: user.username}
-                // params: {user: "danilravil"}
             })
                 .then((response) => setList(response.data))
         } catch (error) {

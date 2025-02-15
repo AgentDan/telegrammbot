@@ -4,7 +4,6 @@ const cors = require('cors');
 const path = require("path");
 const dotenv = require('dotenv').config()
 const connectDB = require("./config/db")
-const Message = require('./models/Message')
 
 connectDB()
 
@@ -21,6 +20,9 @@ app.use('/api/auth', require('./routes/auth.route'))
 
 app.use('/api/bot', require('./routes/bot.route'))
 app.use('/api/points', require('./routes/points.route'))
+app.use('/api/cur', require('./routes/curiers.route'))
+app.use('/api/prod', require('./routes/products.route'))
+app.use('/api/group', require('./routes/group.route'))
 
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;

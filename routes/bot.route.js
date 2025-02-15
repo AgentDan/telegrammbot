@@ -11,7 +11,6 @@ const bot = new TelegramBot(token, {polling: true});
 router.post('/web-data', async (req, res) => {
     const {queryId, products = [], totalPrice, user, del, street, house, note, nameSurname} = req.body;
     try {
-
         const message = await new Message({
             owner: user,
             id: queryId,
