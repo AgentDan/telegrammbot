@@ -103,7 +103,7 @@ export const state = [
     {
         id: uuidv4(),
         own: "горячие блюда",
-        img: "file.jpeg",
+        img: "file.jpg",
         title: 'Филе индейки',
         price: 450,
         description: 'Филе индейки, запеченное в духовке'
