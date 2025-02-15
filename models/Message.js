@@ -7,7 +7,10 @@ const schema = new Schema({
     total: {type: Number},
     products: {type: Array},
     del: {type: String},
-    timestamp: {type: String}
+    timestamp: {type: String},
+    street: {type: String},
+    house: {type: String},
+    note: {type: String}
 })
 
 module.exports = model('Mesage', schema)

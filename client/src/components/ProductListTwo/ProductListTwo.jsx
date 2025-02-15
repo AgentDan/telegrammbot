@@ -52,6 +52,9 @@ const ProductListTwo = () => {
             queryId,
             user: user.username,
             del: delivery,
+            street: street,
+            house: house,
+            note: note
         }
         fetch('/api/bot/web-data', {
             method: 'POST',
