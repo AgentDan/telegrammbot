@@ -20,7 +20,7 @@ app.use('/api/auth', require('./routes/auth.route'))
 
 app.use('/api/bot', require('./routes/bot.route'))
 app.use('/api/points', require('./routes/points.route'))
-app.use('/api/cur', require('./routes/curiers.route'))
+app.use('/api/couriers', require('./routes/curiers.route'))
 app.use('/api/prod', require('./routes/products.route'))
 app.use('/api/group', require('./routes/group.route'))
 
