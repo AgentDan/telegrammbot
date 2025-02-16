@@ -6,16 +6,17 @@ const Orders = () => {
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
     const [list, setList] = useState([])
     const [selectedOption, setSelectedOption] = useState('');
+    const [kitchen, setKitchen] = useState([])
 
     const [curier, setCurier] = useState([])
 
-    const getCouriers = useCallback(async ()=> {
+    const getCouriers = useCallback(async () => {
         try {
             await axios.get('/api/couriers/all', {
                 headers: {'Content-Type': 'application/json'}
             })
-                .then((response)=>setCurier(response.data))
-        }catch (error){
+                .then((response) => setCurier(response.data))
+        } catch (error) {
             console.log(error)
         }
     }, [])
@@ -35,8 +36,6 @@ const Orders = () => {
 
     const onchangeCourier = useCallback(async (id, e) => {
         const name = e.target.value
-        console.log("id: ", id)
-        console.log("name: ", name)
         try {
             await axios.put(`/api/points/courier/${id}`, {id, name}, {
                 headers: {'Content-Type': 'application/json'}
@@ -46,6 +45,19 @@ const Orders = () => {
             console.log(error)
         }
     })
+
+    useEffect(() => {
+        const a = []
+        list.map((item)=>{
+            if(date === item.timestamp.slice(0,10)){
+                item.products.map((i)=>{
+                    a.push(i)
+                })
+            }
+        })
+        setKitchen([...kitchen, a])
+        console.log(kitchen)
+    }, [list]);
 
     useEffect(() => {
         getData()
@@ -86,43 +98,58 @@ const Orders = () => {
                                     )
                                 }
                             </div>
-                            <div className="flex">
-                                <label htmlFor="delivery" className="block font-semibold">
-                                    &nbsp;Курьер:&nbsp;
-                                </label>
-                                <select
-                                    value={item.courier}
-                                    onChange={(e) => onchangeCourier(item._id, e)}
-                                    className="border rounded-md bg-[#9abf9c]"
-                                >
-                                    <option>{item.courier}</option>
-                                    {
-                                        curier.map((itemCur, index) => {
-                                            return (
-                                                <option key={itemCur.cur}>
-                                                    {itemCur.cur}
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </select>
+                            {item.del === "legal" &&
+                                <div className="flex">
+                                    <label htmlFor="delivery" className="block font-semibold">
+                                        &nbsp;Курьер:&nbsp;
+                                    </label>
+                                    <select
+                                        value={item.courier}
+                                        onChange={(e) => onchangeCourier(item._id, e)}
+                                        className="border rounded-md bg-[#9abf9c]"
+                                    >
+                                        <option>{item.courier}</option>
+                                        {
+                                            curier.map((itemCur, index) => {
+                                                return (
+                                                    <option key={itemCur.cur}>
+                                                        {itemCur.cur}
+                                                    </option>
+                                                )
+                                            })
+                                        }
+                                    </select>
 
-                                {selectedOption && (
-                                    <p className="mt-2">
-                                        Вы выбрали:
-                                        <strong>{selectedOption}</strong>
-                                    </p>
-                                )}
-                            </div>
+                                    {selectedOption && (
+                                        <p className="mt-2">
+                                            Вы выбрали:
+                                            <strong>{selectedOption}</strong>
+                                        </p>
+                                    )}
+                                </div>
+                            }
+
                         </div>
-                        {item.products.map((itemproducts, index) => {
+                        {item.products.map((itemproducts) => {
                             return (
-                                <div key={index} className="flex">
+                                <div key={itemproducts.id} className="flex">
                                     <div className="">{itemproducts.title}</div>
                                 </div>
                             )
                         })
                         }
+                    </div>
+                )
+            }
+
+            <div className="font-semibold text-center border-b-2">
+                Кухня
+            </div>
+            {
+                list.map((item) => date === item.timestamp.slice(0, 10)
+                    &&
+                    <div key={item._id}>
+                        {/*{console.log(item.products)}*/}
                     </div>
                 )
             }

@@ -60,7 +60,7 @@ const ProductListTwo = () => {
             street: street,
             house: house,
             note: note,
-            nameSurname: nameSurname
+            nameSurname: nameSurname,
         }
         fetch('/api/bot/web-data', {
             method: 'POST',
@@ -100,7 +100,6 @@ const ProductListTwo = () => {
         }
     }
 
-    console.log(delivery)
     return (
         <>
             {adress === true ? (

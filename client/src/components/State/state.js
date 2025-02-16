@@ -8,37 +8,73 @@ export const state = [
         img: "sup1.jpeg",
         title: 'Щи со сметаной',
         price: 430,
-        description: 'традиционный русский суп на основе капусты'
+        description: 'традиционный русский суп на основе капусты',
+        weight: 33
     },
-    {id: uuidv4(), own: "суп", img: "sup2.jpg", title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: uuidv4(), own: "суп", img: "sup3.jpg", title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: uuidv4(), own: "суп", img: "sup4.jpg", title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
+    {
+        id: uuidv4(),
+        own: "суп",
+        img: "sup2.jpg",
+        title: 'Суп зеленка',
+        price: 12000,
+        description: 'Зеленого цвета, теплая',
+        weight: 33
+    },
+    {
+        id: uuidv4(),
+        own: "суп",
+        img: "sup3.jpg",
+        title: 'Суп синявка',
+        price: 5000,
+        description: 'Синего цвета, прямые',
+        weight: 33
+    },
+    {
+        id: uuidv4(),
+        own: "суп",
+        img: "sup4.jpg",
+        title: 'Суп желток',
+        price: 122,
+        description: 'Желтогр цвета, теплая',
+        weight: 33
+    },
 
     //лапша
     {
         id: uuidv4(),
         own: "лапша",
         img: "lapsha1.jpg",
-        title: 'Ремень',
+        title: 'Лапша травка',
         price: 1322,
-        description: 'Зеленого цвета, теплая'
+        description: 'Зеленого цвета, теплая',
+        weight: 33
     },
-    {id: uuidv4(), own: "лапша", img: "lapsha2.jpg", title: 'Пряжка', price: 22, description: 'Зеленого цвета, теплая'},
+    {
+        id: uuidv4(),
+        own: "лапша",
+        img: "lapsha2.jpg",
+        title: 'Лапша желток',
+        price: 22,
+        description: 'Желтого цвета, теплая',
+        weight: 33
+    },
     {
         id: uuidv4(),
         own: "лапша",
         img: "lapsha3.jpg",
-        title: 'Джинсы 3',
+        title: 'Лапша синявка',
         price: 5000,
-        description: 'Синего цвета, прямые'
+        description: 'Синего цвета, прямые',
+        weight: 33
     },
     {
         id: uuidv4(),
         own: "лапша",
         img: "lapsha4.jpeg",
-        title: 'Куртка 7',
+        title: 'Лапшп зузу',
         price: 600,
-        description: 'Зеленого цвета, теплая'
+        description: 'Зеленого цвета, теплая',
+        weight: 33
     },
 
     //картошка
@@ -46,17 +82,19 @@ export const state = [
         id: uuidv4(),
         own: "картошка",
         img: "potato1.jpg",
-        title: 'Джинсы 4',
+        title: 'Картошка фри',
         price: 5500,
-        description: 'Синего цвета, прямые'
+        description: 'Синего цвета, прямые',
+        weight: 33
     },
     {
         id: uuidv4(),
         own: "картошка",
         img: "potato2.jpg",
-        title: 'Куртка 5',
+        title: 'Фришка',
         price: 12000,
-        description: 'Зеленого цвета, теплая'
+        description: 'Зеленого цвета, теплая',
+        weight: 33
     },
 
     //горячие блюда
@@ -66,7 +104,8 @@ export const state = [
         img: "meat1.jpg",
         title: 'Куриные тефтели',
         price: 400,
-        description: 'Hежные мясные шарики из куриного фарша'
+        description: 'Hежные мясные шарики из куриного фарша',
+        weight: 33
     },
     {
         id: uuidv4(),
@@ -74,7 +113,8 @@ export const state = [
         img: "pasta.jpg",
         title: 'Паста Аматричана',
         price: 650,
-        description: 'Классическое итальянское блюдо из макарон'
+        description: 'Классическое итальянское блюдо из макарон',
+        weight: 33
     },
     {
         id: uuidv4(),
@@ -82,7 +122,8 @@ export const state = [
         img: "pjure.jpg",
         title: 'Картофельное пюре',
         price: 290,
-        description: 'Классический рецепт картофельного пюре — с молоком и сливочным маслом.'
+        description: 'Классический рецепт картофельного пюре — с молоком и сливочным маслом.',
+        weight: 33
     },
     {
         id: uuidv4(),
@@ -90,7 +131,8 @@ export const state = [
         img: "kotleta.jpg",
         title: 'Котлета из индейки',
         price: 330,
-        description: 'Сочные котлеты из индейки с ароматным маслом.'
+        description: 'Сочные котлеты из индейки с ароматным маслом.',
+        weight: 33
     },
     {
         id: uuidv4(),
@@ -98,7 +140,8 @@ export const state = [
         img: "semga.jpeg",
         title: 'Семга запеченая',
         price: 950,
-        description: 'Сёмга, запечённая с луком и картофелем, постный стол.'
+        description: 'Сёмга, запечённая с луком и картофелем, постный стол.',
+        weight: 33
     },
     {
         id: uuidv4(),
@@ -106,7 +149,8 @@ export const state = [
         img: "file.jpg",
         title: 'Филе индейки',
         price: 450,
-        description: 'Филе индейки, запеченное в духовке'
+        description: 'Филе индейки, запеченное в духовке',
+        weight: 33
     },
     {
         id: uuidv4(),
@@ -114,7 +158,8 @@ export const state = [
         img: "kuskus.jpg",
         title: 'Кус-кус',
         price: 300,
-        description: 'кус-кус с овощами'
+        description: 'кус-кус с овощами',
+        weight: 33
     },
     {
         id: uuidv4(),
@@ -122,8 +167,10 @@ export const state = [
         img: "makaroni.jpeg",
         title: 'Макароны с сыром',
         price: 450,
-        description: 'Макароны с сыром: простой, но вкусный рецепт.'
+        description: 'Макароны с сыром: простой, но вкусный рецепт.',
+        weight: 33
     },
+
 
     //салат
     {
@@ -132,7 +179,8 @@ export const state = [
         img: "salat.jpg",
         title: 'Салат овощной',
         price: 250,
-        description: 'Овощной салат со сметаной и зеленью'
+        description: 'Овощной салат со сметаной и зеленью',
+        weight: 33
     },
     {
         id: uuidv4(),
@@ -140,6 +188,7 @@ export const state = [
         img: "cezar.jpeg",
         title: 'Цезарь с курицей',
         price: 800,
-        description: 'Салат Цезарь классический с курицей'
+        description: 'Салат Цезарь классический с курицей',
+        weight: 33
     },
 ]

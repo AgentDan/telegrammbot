@@ -11,7 +11,8 @@ const schema = new Schema({
     house: {type: String},
     note: {type: String},
     nameSurname: {type: String},
-    courier: {type: String, default: "Выберите..."}
+    courier: {type: String, default: "Выберите..."},
+    weight: {type: Number}
 })
 
 module.exports = model('Mesage', schema)
