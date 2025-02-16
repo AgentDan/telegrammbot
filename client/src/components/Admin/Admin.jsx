@@ -8,9 +8,9 @@ const Admin = () => {
     const [selectedOption, setSelectedOption] = useState('');
 
     const [curier, setCurier] = useState([
-        {cur: "Ivan", telephone:"23323523523"},
-        {cur: "Stepan", telephone:"23323523523"},
-        {cur: "Bob", telephone:"23323523523"}
+        {cur: "Ivan", telephone: "23323523523"},
+        {cur: "Stepan", telephone: "23323523523"},
+        {cur: "Bob", telephone: "23323523523"}
     ])
 
     const getData = useCallback(async () => {
@@ -25,6 +25,14 @@ const Admin = () => {
             console.log(error)
         }
     })
+
+    const onchangeCourier = (e, id)=> {
+        console.log("1 : ", e)
+        console.log("1 id : ", id)
+    }
+    const onchangeCourierTTT = (e)=> {
+        console.log("2 : ", e)
+    }
 
     useEffect(() => {
         getData()
@@ -70,26 +78,28 @@ const Admin = () => {
                                                     )
                                                 }
                                             </div>
-                                            <div>
+                                            <div className="flex">
                                                 <label htmlFor="delivery" className="block font-semibold mb-1">
-                                                    Выберите способ доставки:
+                                                    &nbsp;Курьер:&nbsp;
                                                 </label>
                                                 <select
                                                     id="delivery"
-                                                    value={selectedOption}
-                                                    onChange={(e) => setSelectedOption(e.target.value)}
-                                                    className="p-2 border rounded-md w-full"
+                                                    value={item.courier}
+                                                    onChange={(e) => onchangeCourier(e.target.value, item._id)}
+                                                    className="border rounded-md w-full"
                                                 >
-                                                    <option value="">Выберите...</option>
+                                                    <option>Выберите...</option>
 
                                                     {
-                                                        curier.map((item)=> {
-                                                            return(
+                                                        curier.map((itemCur) => {
+                                                            return (
                                                                 <>
                                                                     <option
-                                                                        value={item.cur}
-
-                                                                    >{item.cur}</option>
+                                                                        // value={itemCur.cur}
+                                                                        // onChange={(e) => onchangeCourierTTT(e.target.value)}
+                                                                    >
+                                                                        {itemCur.cur}
+                                                                    </option>
                                                                 </>
                                                             )
                                                         })
