@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import axios from "axios";
+import {v4} from "uuid";
 
 const Orders = () => {
     const timestamp = "2025-02-13T21:07:45.731Z"
@@ -49,18 +50,21 @@ const Orders = () => {
         }
     })
 
-    const kitchenData = () => {
-        const a = list
-            .filter(item => date === item.timestamp.slice(0,10))
-            .flatMap(item => item.products)
-        setKitchen(a)
-    }
-
     useEffect(() => {
-        kitchenData()
+        const a = list
+            .filter(item => date === item.timestamp.slice(0, 10))
+            .flatMap(item => item.products)
+            .reduce((acc, product) => {
+                const existingProduct = acc.find(p => p.title === product.title);
+                if (existingProduct) {
+                    existingProduct.count += 1; // Увеличиваем количество, если товар уже есть
+                } else {
+                    acc.push({...product, count: 1}); // Добавляем новый товар
+                }
+                return acc;
+            }, []);
+        setKitchen(a)
     }, [list]);
-
-    console.log(kitchen)
 
     useEffect(() => {
         getData()
@@ -131,28 +135,39 @@ const Orders = () => {
                                     )}
                                 </div>
                             }
-
                         </div>
                         {item.products.map((itemproducts) => {
-                            return (
-                                <div key={itemproducts.id} className="flex">
-                                    <div className="">{itemproducts.title}</div>
-                                </div>
-                            )
-                        })
+                                return (
+                                    <div key={itemproducts.title} className="flex">
+                                        <div className="">{itemproducts.title}</div>
+                                    </div>
+                                )
+                            }
+                        )
                         }
                     </div>
                 )
             }
-
             <div className="font-semibold text-center border-b-2">
                 Кухня
             </div>
+            <div className="grid grid-cols-3 gap-2 mt-2 text-sm font-medium border-b">
+                <div>Блюдо</div>
+                <div className="text-center">Количество</div>
+                <div className="text-center">Вес</div>
+            </div>
             {
-                list.map((item) => date === item.timestamp.slice(0, 10)
-                    &&
-                    <div key={item._id}>
-                        {/*{console.log(item.products)}*/}
+                kitchen.map((item) =>
+                    <div key={item.title} className="grid grid-cols-3 gap-2 border-b py-1">
+                        <div>
+                            {item.title}
+                        </div>
+                        <div className="text-center">
+                            {item.count}шт. x {item.weight}гр.
+                        </div>
+                        <div className="text-center">
+                            Всего: {item.count * item.weight}гр.
+                        </div>
                     </div>
                 )
             }
