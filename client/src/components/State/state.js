@@ -9,7 +9,7 @@ export const state = [
         title: 'Щи со сметаной',
         price: 430,
         description: 'традиционный русский суп на основе капусты',
-        weight: 33
+        weight: 133
     },
     {
         id: uuidv4(),
@@ -18,7 +18,7 @@ export const state = [
         title: 'Суп зеленка',
         price: 12000,
         description: 'Зеленого цвета, теплая',
-        weight: 33
+        weight: 332
     },
     {
         id: uuidv4(),
@@ -27,7 +27,7 @@ export const state = [
         title: 'Суп синявка',
         price: 5000,
         description: 'Синего цвета, прямые',
-        weight: 33
+        weight: 233
     },
     {
         id: uuidv4(),
@@ -36,7 +36,7 @@ export const state = [
         title: 'Суп желток',
         price: 122,
         description: 'Желтогр цвета, теплая',
-        weight: 33
+        weight: 45
     },
 
     //лапша
@@ -47,7 +47,7 @@ export const state = [
         title: 'Лапша травка',
         price: 1322,
         description: 'Зеленого цвета, теплая',
-        weight: 33
+        weight: 87
     },
     {
         id: uuidv4(),
@@ -56,7 +56,7 @@ export const state = [
         title: 'Лапша желток',
         price: 22,
         description: 'Желтого цвета, теплая',
-        weight: 33
+        weight: 223
     },
     {
         id: uuidv4(),
@@ -65,7 +65,7 @@ export const state = [
         title: 'Лапша синявка',
         price: 5000,
         description: 'Синего цвета, прямые',
-        weight: 33
+        weight: 133
     },
     {
         id: uuidv4(),
@@ -74,7 +74,7 @@ export const state = [
         title: 'Лапшп зузу',
         price: 600,
         description: 'Зеленого цвета, теплая',
-        weight: 33
+        weight: 344
     },
 
     //картошка
@@ -85,7 +85,7 @@ export const state = [
         title: 'Картошка фри',
         price: 5500,
         description: 'Синего цвета, прямые',
-        weight: 33
+        weight: 55
     },
     {
         id: uuidv4(),
@@ -94,7 +94,7 @@ export const state = [
         title: 'Фришка',
         price: 12000,
         description: 'Зеленого цвета, теплая',
-        weight: 33
+        weight: 233
     },
 
     //горячие блюда
@@ -105,7 +105,7 @@ export const state = [
         title: 'Куриные тефтели',
         price: 400,
         description: 'Hежные мясные шарики из куриного фарша',
-        weight: 33
+        weight: 41
     },
     {
         id: uuidv4(),
@@ -114,7 +114,7 @@ export const state = [
         title: 'Паста Аматричана',
         price: 650,
         description: 'Классическое итальянское блюдо из макарон',
-        weight: 33
+        weight: 132
     },
     {
         id: uuidv4(),
@@ -123,7 +123,7 @@ export const state = [
         title: 'Картофельное пюре',
         price: 290,
         description: 'Классический рецепт картофельного пюре — с молоком и сливочным маслом.',
-        weight: 33
+        weight: 67
     },
     {
         id: uuidv4(),
@@ -132,7 +132,7 @@ export const state = [
         title: 'Котлета из индейки',
         price: 330,
         description: 'Сочные котлеты из индейки с ароматным маслом.',
-        weight: 33
+        weight: 55
     },
     {
         id: uuidv4(),
@@ -141,7 +141,7 @@ export const state = [
         title: 'Семга запеченая',
         price: 950,
         description: 'Сёмга, запечённая с луком и картофелем, постный стол.',
-        weight: 33
+        weight: 333
     },
     {
         id: uuidv4(),
@@ -150,7 +150,7 @@ export const state = [
         title: 'Филе индейки',
         price: 450,
         description: 'Филе индейки, запеченное в духовке',
-        weight: 33
+        weight: 223
     },
     {
         id: uuidv4(),
@@ -159,7 +159,7 @@ export const state = [
         title: 'Кус-кус',
         price: 300,
         description: 'кус-кус с овощами',
-        weight: 33
+        weight: 75
     },
     {
         id: uuidv4(),
@@ -168,7 +168,7 @@ export const state = [
         title: 'Макароны с сыром',
         price: 450,
         description: 'Макароны с сыром: простой, но вкусный рецепт.',
-        weight: 33
+        weight: 165
     },
 
 
@@ -180,7 +180,7 @@ export const state = [
         title: 'Салат овощной',
         price: 250,
         description: 'Овощной салат со сметаной и зеленью',
-        weight: 33
+        weight: 143
     },
     {
         id: uuidv4(),
@@ -189,6 +189,6 @@ export const state = [
         title: 'Цезарь с курицей',
         price: 800,
         description: 'Салат Цезарь классический с курицей',
-        weight: 33
+        weight: 326
     },
 ]

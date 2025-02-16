@@ -28,7 +28,10 @@ const Orders = () => {
                     'Content-Type': 'application/json'
                 }
             })
-                .then((response) => setList(response.data))
+                .then((response) => {
+                        setList(response.data)
+                    }
+                )
         } catch (error) {
             console.log(error)
         }
@@ -46,18 +49,18 @@ const Orders = () => {
         }
     })
 
+    const kitchenData = () => {
+        const a = list
+            .filter(item => date === item.timestamp.slice(0,10))
+            .flatMap(item => item.products)
+        setKitchen(a)
+    }
+
     useEffect(() => {
-        const a = []
-        list.map((item)=>{
-            if(date === item.timestamp.slice(0,10)){
-                item.products.map((i)=>{
-                    a.push(i)
-                })
-            }
-        })
-        setKitchen([...kitchen, a])
-        console.log(kitchen)
+        kitchenData()
     }, [list]);
+
+    console.log(kitchen)
 
     useEffect(() => {
         getData()
