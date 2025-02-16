@@ -136,6 +136,7 @@ const Orders = () => {
                                 </div>
                             }
                         </div>
+
                         {item.products.map((itemproducts) => {
                                 return (
                                     <div key={itemproducts.title} className="flex">
@@ -143,8 +144,7 @@ const Orders = () => {
                                     </div>
                                 )
                             }
-                        )
-                        }
+                        )}
                     </div>
                 )
             }
