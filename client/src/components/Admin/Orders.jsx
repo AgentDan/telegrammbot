@@ -72,7 +72,7 @@ const Orders = () => {
     }, [date, getCouriers]);
 
     return (
-        <div className="m-2 w-[400px] h-auto bg-[#9abf9c] rounded-xl p-2">
+        <div className=" min-w-[400px] max-w-[400px] h-auto bg-[#9abf9c] rounded-xl p-2">
             <div className="font-semibold text-center border-b-2">Заказаы на :
                 <input className=" bg-[#9abf9c]"
                        type="date"

@@ -4,7 +4,7 @@ import Orders from "./Orders.jsx";
 
 const Admin = () => {
     return (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-2">
             <Orders/>
             <Couriers/>
         </div>

@@ -63,7 +63,7 @@ const Couriers = () => {
     }, [])
 
     return (
-        <div className="min-h-0 max-h-fit m-2 min-w-[400px] max-w-[400px] bg-[#9abf9c] rounded-xl p-2">
+        <div className="min-h-0 max-h-fit min-w-[400px] max-w-[400px] bg-[#9abf9c] rounded-xl p-2">
             <div className="font-semibold text-center border-b-2">Курьеры</div>
             <div className="flex flex-col">
                 <div className="font-semibold">Hoвый курьер: </div>
